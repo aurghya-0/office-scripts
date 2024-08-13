@@ -16,7 +16,7 @@ def download_and_rename(index, file_id, new_name):
         file_name = file['title']
         print(f"{index + 1}. Currently formatting - {file_name}")
         file_extension = file_name.split('.')[-1]
-        file.GetContentFile(f"GUJ_HSC/{new_name}.{file_extension}")
+        file.GetContentFile(f"CC_CA1/{new_name}.{file_extension}")
     except:
         print("Error occured! Trying next value")
 
@@ -24,7 +24,7 @@ def download_and_rename(index, file_id, new_name):
 def process_csv(csv_file):
     df = pd.read_csv(csv_file)
     for index, row in df.iterrows():
-        new_name = row['ENO']
+        new_name = row['Roll']
         file_link = row['Link']
         file_id = file_link.split('=')[-1]
         download_and_rename(index, file_id, new_name)
@@ -32,5 +32,5 @@ def process_csv(csv_file):
 
 if __name__ == "__main__":
     drive = authenticate_drive()
-    csv_file_path = "GUJ_HSC.csv"
+    csv_file_path = "CC_CA1.csv"
     process_csv(csv_file_path)
