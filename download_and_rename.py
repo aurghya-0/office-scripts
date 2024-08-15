@@ -24,7 +24,7 @@ def download_and_rename(index, file_id, new_name):
 def process_csv(csv_file):
     df = pd.read_csv(csv_file)
     for index, row in df.iterrows():
-        new_name = row['Roll']
+        new_name = str(row['Roll']) + " - " + row['Name']
         file_link = row['Link']
         file_id = file_link.split('=')[-1]
         download_and_rename(index, file_id, new_name)
