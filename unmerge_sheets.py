@@ -16,5 +16,5 @@ def unmerge_cells(directory):
 
 
 if __name__ == "__main__":
-    directory = "excel"
-    unmerge_cells(directory)
+    excel_directory = "excel"
+    unmerge_cells(excel_directory)
