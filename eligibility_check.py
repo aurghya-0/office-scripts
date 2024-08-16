@@ -71,9 +71,10 @@ for row in range(2, ws.max_row + 1):
         if current_student is not None:
             # Merge student_name cells
             ws.merge_cells(start_row=start_row, start_column=1, end_row=row-1, end_column=1)
-            # If allowed for all courses, merge eligibility cells
+            # Merge eligibility cells for "Allowed for all courses" or "Not allowed"
             if ws.cell(row=start_row, column=8).value == 'Allowed for all courses' or \
-               ws.cell(row=start_row, column=8).value == 'Allowed for all courses due to Project':
+               ws.cell(row=start_row, column=8).value == 'Allowed for all courses due to Project' or \
+               ws.cell(row=start_row, column=8).value == 'Not allowed':
                 ws.merge_cells(start_row=start_row, start_column=8, end_row=row-1, end_column=8)
             # Merge overall_attendance cells
             ws.merge_cells(start_row=start_row, start_column=7, end_row=row-1, end_column=7)
@@ -84,7 +85,8 @@ for row in range(2, ws.max_row + 1):
 if current_student is not None:
     ws.merge_cells(start_row=start_row, start_column=1, end_row=ws.max_row, end_column=1)
     if ws.cell(row=start_row, column=8).value == 'Allowed for all courses' or \
-       ws.cell(row=start_row, column=8).value == 'Allowed for all courses due to Project':
+       ws.cell(row=start_row, column=8).value == 'Allowed for all courses due to Project' or \
+       ws.cell(row=start_row, column=8).value == 'Not allowed':
         ws.merge_cells(start_row=start_row, start_column=8, end_row=ws.max_row, end_column=8)
     # Merge overall_attendance cells
     ws.merge_cells(start_row=start_row, start_column=7, end_row=ws.max_row, end_column=7)
