@@ -4,6 +4,7 @@ import random as r
 
 # n_students = Number of students
 # n_days = Number of days
+
 def generate_random_attendance(n_students, n_days):
   l = [] # final list of attendance
   for _ in (0, n_days):
@@ -16,7 +17,7 @@ def generate_random_attendance(n_students, n_days):
 
 
 def generate_random_marks(n_students, marks_max, marks_min):
-    marks = []
+    marks = [] # final list of marks
     for _ in range(n_students):
         marks = r.choices(range(marks_min, marks_max), k=n_students)
 
