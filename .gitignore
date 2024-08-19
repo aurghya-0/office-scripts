@@ -179,6 +179,6 @@ pyrightconfig.json
 *.pdf
 
 excel/
-.DS_Store
+.DS_Store/
 .csv
 # End of https://www.toptal.com/developers/gitignore/api/python
