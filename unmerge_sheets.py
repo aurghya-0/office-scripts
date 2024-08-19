@@ -1,3 +1,4 @@
+# Full documentation - https://github.com/aurghya-0/office-scripts/wiki/Unmerge-Sheet
 import os
 import pandas as pd
 

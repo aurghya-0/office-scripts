@@ -1,3 +1,4 @@
+# Full documentation - https://github.com/aurghya-0/office-scripts/wiki/Random-Generator
 import pandas as pd
 import numpy as np
 import random as r
