@@ -5,6 +5,20 @@ import pandas as pd
 
 
 def authenticate_drive():
+    """
+    Authenticate with Google Drive using OAuth and return a GoogleDrive object.
+    
+    Returns:
+    -------
+    GoogleDrive
+        A GoogleDrive object that can be used to interact with Google Drive.
+    
+    Notes:
+    -----
+    This function uses the pydrive library to authenticate with Google Drive.
+    It uses the LocalWebserverAuth method to authenticate, which will open a web browser
+    to authenticate the user.
+    """
     gauth = GoogleAuth()
     gauth.LocalWebserverAuth()
     drive = GoogleDrive(gauth)
@@ -12,6 +26,28 @@ def authenticate_drive():
 
 
 def download_and_rename(index, file_id, new_name):
+    """
+    Download a file from Google Drive and rename it.
+    
+    Parameters:
+    ----------
+    index : int
+        The index of the file being processed.
+    file_id : str
+        The ID of the file to download from Google Drive.
+    new_name : str
+        The new name to give the file.
+    
+    Notes:
+    -----
+    This function downloads the file from Google Drive using the pydrive library,
+    and saves it to the local file system with the new name.
+    
+    Raises:
+    ------
+    Exception
+        If an error occurs while downloading or renaming the file.
+    """
     try:
         drive = authenticate_drive()
         file = drive.CreateFile({'id': file_id})
